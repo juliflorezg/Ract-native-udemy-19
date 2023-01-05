@@ -7,14 +7,26 @@ import {
   Platform,
   TouchableOpacity,
   KeyboardAvoidingView,
+  Keyboard,
 } from 'react-native';
 import {Background} from '../components/Background';
 import {WhiteLogo} from '../components/WhiteLogo';
 import {loginStyles} from '../theme/loginTheme';
+import {useForm} from '../hooks/useForm';
 
 interface Props extends StackScreenProps<any, any> {}
 
 export const LoginScreen = ({navigation}: Props) => {
+  const {email, password, onChange} = useForm({
+    email: '',
+    password: '',
+  });
+
+  const onLogin = () => {
+    console.log({email, password});
+    Keyboard.dismiss();
+  };
+
   return (
     <>
       {/* background */}
@@ -37,8 +49,9 @@ export const LoginScreen = ({navigation}: Props) => {
               Platform.OS === 'ios' && loginStyles.inputFielsIOS,
             ]}
             selectionColor="teal"
-            // value={}
-            // onChange={}
+            value={email}
+            onChangeText={value => onChange('email', value)}
+            onSubmitEditing={onLogin}
             autoCapitalize="none"
             autoCorrect={false}
           />
@@ -52,12 +65,17 @@ export const LoginScreen = ({navigation}: Props) => {
               Platform.OS === 'ios' && loginStyles.inputFielsIOS,
             ]}
             selectionColor="teal"
-            // value={}
-            // onChange={}
+            value={password}
+            onChangeText={value => onChange('password', value)}
+            onSubmitEditing={onLogin}
+            secureTextEntry
           />
           {/* boton login */}
           <View style={loginStyles.buttonContainer}>
-            <TouchableOpacity activeOpacity={0.8} style={loginStyles.button}>
+            <TouchableOpacity
+              activeOpacity={0.8}
+              style={loginStyles.button}
+              onPress={onLogin}>
               <Text style={loginStyles.buttonText}>Login</Text>
             </TouchableOpacity>
           </View>
@@ -65,7 +83,7 @@ export const LoginScreen = ({navigation}: Props) => {
           <View style={loginStyles.newUserContainer}>
             <TouchableOpacity
               activeOpacity={0.8}
-              onPress={() => console.log('new user!!')}>
+              onPress={() => navigation.replace('RegisterScreen')}>
               <Text style={loginStyles.buttonText}>New Account</Text>
             </TouchableOpacity>
           </View>
