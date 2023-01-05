@@ -5,7 +5,7 @@ import Icon from 'react-native-vector-icons/FontAwesome5';
 
 interface Props extends StackScreenProps<any, any> {}
 
-export const HomeScreen = ({navigation}: Props) => {
+export const LoginScreen = ({navigation}: Props) => {
   return (
     <View>
       <Icon name="dot-circle" size={30} color="red" />

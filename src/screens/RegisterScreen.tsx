@@ -1,9 +1,9 @@
 import React from 'react';
 import {View, Text} from 'react-native';
-export const PokemonScreen = () => {
+export const RegisterScreen = () => {
   return (
     <View>
-      <Text>pokemon info</Text>
+      <Text>register</Text>
     </View>
   );
 };
