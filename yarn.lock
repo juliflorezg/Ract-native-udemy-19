@@ -7923,6 +7923,7 @@ __metadata:
     metro-react-native-babel-preset: 0.72.3
     react: 18.1.0
     react-native: 0.70.6
+    react-native-anchor-point: ^1.0.6
     react-native-gesture-handler: ^2.8.0
     react-native-safe-area-context: ^4.4.1
     react-native-screens: ^3.18.2
@@ -8138,6 +8139,13 @@ __metadata:
   version: 17.0.2
   resolution: "react-is@npm:17.0.2"
   checksum: 9d6d111d8990dc98bc5402c1266a808b0459b5d54830bbea24c12d908b536df7883f268a7868cfaedde3dd9d4e0d574db456f84d2e6df9c4526f99bb4b5344d8
+  languageName: node
+  linkType: hard
+
+"react-native-anchor-point@npm:^1.0.6":
+  version: 1.0.6
+  resolution: "react-native-anchor-point@npm:1.0.6"
+  checksum: 2f69eb5f7d4404c613dcdedbe2ad29073a8a48ebc21906384bb191cc3f0a4b1659b82708564576c33a83d84ad414b1ca0704ac37ef118866f1af8918ba0a10f1
   languageName: node
   linkType: hard
 
