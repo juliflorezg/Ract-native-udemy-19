@@ -1,19 +1,28 @@
 import {StackScreenProps} from '@react-navigation/stack';
 import React from 'react';
-import {View, Text, Button} from 'react-native';
+import {View, Text, Button, TextInput} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
+import {Background} from '../components/Background';
+import {WhiteLogo} from '../components/WhiteLogo';
+import {loginStyles} from '../theme/loginTheme';
 
 interface Props extends StackScreenProps<any, any> {}
 
 export const LoginScreen = ({navigation}: Props) => {
   return (
-    <View>
-      <Icon name="dot-circle" size={30} color="red" />
-      <Text>home</Text>
-      <Button
-        title="Go to Pokemon page"
-        onPress={() => navigation.navigate('PokemonScreen')}
+    <>
+      {/* background */}
+      <Background />
+      {/* keyboard avoid view */}
+
+      <WhiteLogo />
+      <Text style={loginStyles.title}>Login</Text>
+      <Text style={loginStyles.label}>Email</Text>
+      <TextInput
+        placeholder="Your email:"
+        placeholderTextColor="rgba(255,255,255,0.8)"
+        keyboardType="email-address"
       />
-    </View>
+    </>
   );
 };
