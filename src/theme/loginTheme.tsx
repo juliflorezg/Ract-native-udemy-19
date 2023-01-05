@@ -48,4 +48,14 @@ export const loginStyles = StyleSheet.create({
     alignItems: 'flex-end',
     marginTop: 20,
   },
+  buttonReturn: {
+    position: 'absolute',
+    top: 50,
+    left: 20,
+    borderWidth: 1,
+    borderColor: 'white',
+    paddingVertical: 5,
+    paddingHorizontal: 10,
+    borderRadius: 100,
+  },
 });
