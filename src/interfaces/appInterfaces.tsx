@@ -4,6 +4,9 @@ export interface LoginData {
   correo: string;
   password: string;
 }
+export interface RegisterData extends LoginData {
+  nombre: string;
+}
 
 export interface LoginResponse {
   usuario: Usuario;
