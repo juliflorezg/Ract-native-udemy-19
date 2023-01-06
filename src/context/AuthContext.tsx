@@ -1,7 +1,12 @@
 import React, {createContext, useReducer, useEffect} from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import cafeAPI from '../api/cafeAPI';
-import {LoginData, LoginResponse, Usuario} from '../interfaces/appInterfaces';
+import {
+  LoginData,
+  LoginResponse,
+  RegisterData,
+  Usuario,
+} from '../interfaces/appInterfaces';
 import {authReducer, AuthState} from './authReducer';
 
 interface AuthContextProps {
@@ -9,7 +14,7 @@ interface AuthContextProps {
   token: string | null;
   user: Usuario | null;
   status: 'checking' | 'authenticated' | 'not-authenticated';
-  signUp: () => void;
+  signUp: (registerData: RegisterData) => void;
   signIn: (loginData: LoginData) => void;
   removeError: () => void;
   logout: () => void;
@@ -64,7 +69,33 @@ export const AuthContextProvider = ({
 
   // const validateToken = () => {};
 
-  const signUp = () => {};
+  const signUp = async ({nombre, correo, password}: RegisterData) => {
+    try {
+      const res = await cafeAPI.post<LoginResponse>('/usuarios', {
+        correo,
+        nombre,
+        password,
+      });
+      dispatch({
+        type: 'signUp',
+        payload: {
+          token: res.data.token,
+          user: res.data.usuario,
+        },
+      });
+      // now, we have to set the token in AsyncStorage
+      await AsyncStorage.setItem('token', res.data.token);
+    } catch (error) {
+      console.error(error);
+      console.error(JSON.stringify(error.response, null, 2));
+      const errors = error.response.data.errors.map(err => err.msg);
+      dispatch({
+        type: 'addError',
+        payload: errors[0] || 'Please check the information',
+      });
+      console.log(errors); //['el nombre es obligatorio']
+    }
+  };
   const signIn = async ({correo, password}: LoginData) => {
     try {
       const {
