@@ -48,6 +48,8 @@ export const AuthContextProvider = ({
         if (res.status !== 200) {
           return dispatch({type: 'notAuthenticated'});
         }
+        //? here we set a new token with new expiration time
+        await AsyncStorage.setItem('token', res.data.token);
         dispatch({
           type: 'signUp',
           payload: {token: res.data.token, user: res.data.usuario},
@@ -60,7 +62,7 @@ export const AuthContextProvider = ({
     readTokenFromStorage();
   }, []);
 
-  const validateToken = () => {};
+  // const validateToken = () => {};
 
   const signUp = () => {};
   const signIn = async ({correo, password}: LoginData) => {
