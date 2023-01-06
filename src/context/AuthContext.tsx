@@ -87,7 +87,10 @@ export const AuthContextProvider = ({
     }
   };
   const removeError = () => dispatch({type: 'removeError'});
-  const logout = () => {};
+  const logout = async () => {
+    await AsyncStorage.removeItem('token');
+    dispatch({type: 'logOut'});
+  };
   return (
     <AuthContext.Provider
       value={{
