@@ -1497,6 +1497,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@react-native-async-storage/async-storage@npm:^1.17.11":
+  version: 1.17.11
+  resolution: "@react-native-async-storage/async-storage@npm:1.17.11"
+  dependencies:
+    merge-options: ^3.0.4
+  peerDependencies:
+    react-native: ^0.0.0-0 || 0.60 - 0.71 || 1000.0.0
+  checksum: 691f2b74498160d0b532f673402d8affeecb28b005b1c6d6fa2e7c87f89ab3068177e8e2d2686738306e7592a39c6d7148aa4c426b7e8e149c43a336ad446648
+  languageName: node
+  linkType: hard
+
 "@react-native-community/cli-clean@npm:^9.2.1":
   version: 9.2.1
   resolution: "@react-native-community/cli-clean@npm:9.2.1"
@@ -2293,6 +2304,41 @@ __metadata:
   checksum: b4d1f4daa67e962d22c41325d9dcb6b2efde1caf354a2edb5bf682b92ab8c6205435d0b12f39ce9771955250e26f2a6f03adabb37e62e5aac8225691a59ef153
   languageName: node
   linkType: hard
+
+"ProductosAPP@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "ProductosAPP@workspace:."
+  dependencies:
+    "@babel/core": ^7.12.9
+    "@babel/runtime": ^7.12.5
+    "@react-native-async-storage/async-storage": ^1.17.11
+    "@react-native-community/eslint-config": ^2.0.0
+    "@react-navigation/native": ^6.1.1
+    "@react-navigation/stack": ^6.3.10
+    "@tsconfig/react-native": ^2.0.2
+    "@types/jest": ^26.0.23
+    "@types/react": ^18.0.21
+    "@types/react-native": ^0.70.6
+    "@types/react-native-vector-icons": ^6.4.12
+    "@types/react-test-renderer": ^18.0.0
+    "@typescript-eslint/eslint-plugin": ^5.37.0
+    "@typescript-eslint/parser": ^5.37.0
+    axios: ^1.2.2
+    babel-jest: ^26.6.3
+    eslint: ^7.32.0
+    jest: ^26.6.3
+    metro-react-native-babel-preset: 0.72.3
+    react: 18.1.0
+    react-native: 0.70.6
+    react-native-anchor-point: ^1.0.6
+    react-native-gesture-handler: ^2.8.0
+    react-native-safe-area-context: ^4.4.1
+    react-native-screens: ^3.18.2
+    react-native-vector-icons: ^9.2.0
+    react-test-renderer: 18.1.0
+    typescript: ^4.8.3
+  languageName: unknown
+  linkType: soft
 
 "abab@npm:^2.0.3, abab@npm:^2.0.5":
   version: 2.0.6
@@ -5520,6 +5566,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"is-plain-obj@npm:^2.1.0":
+  version: 2.1.0
+  resolution: "is-plain-obj@npm:2.1.0"
+  checksum: cec9100678b0a9fe0248a81743041ed990c2d4c99f893d935545cfbc42876cbe86d207f3b895700c690ad2fa520e568c44afc1605044b535a7820c1d40e38daa
+  languageName: node
+  linkType: hard
+
 "is-plain-object@npm:^2.0.3, is-plain-object@npm:^2.0.4":
   version: 2.0.4
   resolution: "is-plain-object@npm:2.0.4"
@@ -6701,6 +6754,15 @@ __metadata:
   version: 5.2.1
   resolution: "memoize-one@npm:5.2.1"
   checksum: a3cba7b824ebcf24cdfcd234aa7f86f3ad6394b8d9be4c96ff756dafb8b51c7f71320785fbc2304f1af48a0467cbbd2a409efc9333025700ed523f254cb52e3d
+  languageName: node
+  linkType: hard
+
+"merge-options@npm:^3.0.4":
+  version: 3.0.4
+  resolution: "merge-options@npm:3.0.4"
+  dependencies:
+    is-plain-obj: ^2.1.0
+  checksum: d86ddb3dd6e85d558dbf25dc944f3527b6bacb944db3fdda6e84a3f59c4e4b85231095f58b835758b9a57708342dee0f8de0dffa352974a48221487fe9f4584f
   languageName: node
   linkType: hard
 
@@ -7931,40 +7993,6 @@ __metadata:
   checksum: 9863e3f35132bf99ae1636d31ff1e1e3501251d480336edb1c211133c8d58906bed80f154a1d723652df1fda91e01c7442c2eeaf9dc83157c7ae89087e43c8d6
   languageName: node
   linkType: hard
-
-"pokedex@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "pokedex@workspace:."
-  dependencies:
-    "@babel/core": ^7.12.9
-    "@babel/runtime": ^7.12.5
-    "@react-native-community/eslint-config": ^2.0.0
-    "@react-navigation/native": ^6.1.1
-    "@react-navigation/stack": ^6.3.10
-    "@tsconfig/react-native": ^2.0.2
-    "@types/jest": ^26.0.23
-    "@types/react": ^18.0.21
-    "@types/react-native": ^0.70.6
-    "@types/react-native-vector-icons": ^6.4.12
-    "@types/react-test-renderer": ^18.0.0
-    "@typescript-eslint/eslint-plugin": ^5.37.0
-    "@typescript-eslint/parser": ^5.37.0
-    axios: ^1.2.2
-    babel-jest: ^26.6.3
-    eslint: ^7.32.0
-    jest: ^26.6.3
-    metro-react-native-babel-preset: 0.72.3
-    react: 18.1.0
-    react-native: 0.70.6
-    react-native-anchor-point: ^1.0.6
-    react-native-gesture-handler: ^2.8.0
-    react-native-safe-area-context: ^4.4.1
-    react-native-screens: ^3.18.2
-    react-native-vector-icons: ^9.2.0
-    react-test-renderer: 18.1.0
-    typescript: ^4.8.3
-  languageName: unknown
-  linkType: soft
 
 "posix-character-classes@npm:^0.1.0":
   version: 0.1.1
