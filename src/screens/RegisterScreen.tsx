@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext, useEffect} from 'react';
 import {
   View,
   Text,
@@ -7,11 +7,13 @@ import {
   TouchableOpacity,
   Keyboard,
   TextInput,
+  Alert,
 } from 'react-native';
 import {StackScreenProps} from '@react-navigation/stack';
 import {WhiteLogo} from '../components/WhiteLogo';
 import {useForm} from '../hooks/useForm';
 import {loginStyles} from '../theme/loginTheme';
+import {AuthContext} from '../context/AuthContext';
 
 interface Props extends StackScreenProps<any, any> {}
 
@@ -22,10 +24,23 @@ export const RegisterScreen = ({navigation}: Props) => {
     password: '',
   });
 
+  const {signUp, errorMessage, removeError} = useContext(AuthContext);
+
   const onRegister = () => {
-    console.log({email, password});
+    console.log({name, email, password});
     Keyboard.dismiss();
+    signUp({nombre: name, correo: email, password});
   };
+
+  useEffect(() => {
+    if (errorMessage.length === 0) {
+      return;
+    }
+
+    Alert.alert('Failed to create account', errorMessage, [
+      {text: 'ok', onPress: removeError},
+    ]);
+  }, [errorMessage]);
 
   return (
     <>
@@ -46,7 +61,7 @@ export const RegisterScreen = ({navigation}: Props) => {
               Platform.OS === 'ios' && loginStyles.inputFielsIOS,
             ]}
             selectionColor="teal"
-            value={email}
+            value={name}
             onChangeText={value => onChange('name', value)}
             onSubmitEditing={onRegister}
             autoCapitalize="words"
