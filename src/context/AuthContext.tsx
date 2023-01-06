@@ -44,6 +44,14 @@ export const AuthContextProvider = ({
         }
 
         //There's a token
+        const res = await cafeAPI.get('/auth');
+        if (res.status !== 200) {
+          return dispatch({type: 'notAuthenticated'});
+        }
+        dispatch({
+          type: 'signUp',
+          payload: {token: res.data.token, user: res.data.usuario},
+        });
       } catch (error) {
         console.log(error);
       }
