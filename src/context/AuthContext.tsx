@@ -44,9 +44,13 @@ export const AuthContextProvider = ({
       // console.log(res.data);
     } catch (error) {
       console.log(error.response.data.msg);
+      dispatch({
+        type: 'addError',
+        payload: error.response.data.msg || 'Wrong credentials',
+      });
     }
   };
-  const removeError = () => {};
+  const removeError = () => dispatch({type: 'removeError'});
   const logout = () => {};
   return (
     <AuthContext.Provider
